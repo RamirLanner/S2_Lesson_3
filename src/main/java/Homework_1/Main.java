@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
 
         //for fun, I could create an array of words like a List
-        List<String> myList = new ArrayList<>();
+        List<String> myList;
         myList = Arrays.asList(words);//массив в коллекцию
         System.out.println(myList.toString());
 
@@ -41,10 +41,7 @@ public class Main {
 
     private static void uniqueValues(List<String> myList) {
         //вывод уникальных значений вколлекции
-        Set<String> mySet = new HashSet<>();
-        for (String s : myList) {
-            mySet.add(s);
-        }
+        Set<String> mySet = new HashSet<>(myList);
         System.out.println(mySet.toString());
     }
 
@@ -53,7 +50,7 @@ public class Main {
         //Данный пример видел в сети раньше, он показался более элегантным
         //я просто не смог сделать по другому
         Map<String, Integer> myMap = new HashMap<>();
-        Integer counter = 0;
+        Integer counter;
         for (String s : myList) {
             counter = myMap.get(s);
             myMap.put(s, counter == null ? 1 : ++counter);
